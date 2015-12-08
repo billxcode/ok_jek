@@ -1,0 +1,25 @@
+@mixin borderrad($var){
+	border-radius: $var;
+	-moz-border-radius: $var;
+	-ms-border-radius: $var;
+	-webkit-border-radius: $var;
+	-o-border-radius: $var;
+}
+@mixin linkremover(){
+	a{
+		text-decoration: none;
+	}
+	a:visited{
+		text-decoration: none;
+	}
+	a:link{
+		text-decoration: none;
+	}
+	a:hover{
+		text-decoration: none;
+	}
+	a:active{
+		text-decoration: none;
+	}
+
+}
