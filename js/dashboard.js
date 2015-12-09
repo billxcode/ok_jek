@@ -1,13 +1,24 @@
 $(function(){
+	$.get("../server/check_session.php",function(data){
+		if(data=="login"){
+			alert("session success");
+		}else if(data=="logout"){
+			window.location="../index.html";
+		}
+	});
 	$.get("../server/contact.php",function(data){
 		var obj = JSON.parse('{"data_contact":'+data+'}');
 		for(var i=0;i<obj.data_contact.length;i++){
 			$("#contact-driver").append("<input type='radio' name='driver' value='"+obj.data_contact[i].Username+"'>"+obj.data_contact[i].Username+"<br>");
 		}
 	});
+	$("#message").slideUp();
 	$("#send-message").hide();
 	$("#btn-show-home").on("click",function(){
 		window.location = "index.html";
+	});
+	$("#btn-show-message").on("click",function(){
+		$("#message").toggle(300);
 	});
 	$("#btn-send-message").on("click",function(){
 		var $value = $("#message-value").val()+"<br>";

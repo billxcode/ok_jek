@@ -7,7 +7,7 @@ function geolocation(){
 			lng = position.coords.longitude;
 			var options = {
 		center : new google.maps.LatLng(lat,lng),
-		zoom:9,
+		zoom:15,
 		MapType:google.maps.MapTypeId.SATELLITE
 	}
 	new google.maps.Map(document.getElementById("maps"),options);
