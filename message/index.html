@@ -10,7 +10,6 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-
 	<div id="header">
 		<div id="title" class="inner-head">DASHBOARD</div>
 		<div id="menu-header" class="inner-head">
@@ -21,12 +20,22 @@
 		</div>
 	</div>
 	<div id="content">
-		<div id="online-driver">
-			
+	<div id="contact-driver"></div>
+		<div id="message">
+		<form method="post" name="form-message" class="form" id="form-message">
+				<div id="form-send-message">
+				<div><button id="btn-inbox" type="button" class="btn">Inbox</button><button id="btn-sent" type="button" class="btn">Sent Box</button></div>
+										<div><input type="text" name="receiver" placeholder="send to" id="receiver" class="text text-msg"></div>
+											<div><input type="text" name="message-value" id="message-value" placeholder="type something . ." class="text text-msg"></div>
+											<div><button id="btn-send-message" type="button" class="btn">send</button></div>
+											<div id="result-send-message"></div></div>
+				</form>
+				<div id="send-message" class="result-msg">
+												
+											</div>
 		</div>
-		<div  id="maps">
-
-		</div>
+		<div id="receive-message" class="result-msg">
+											</div>
 	</div>
 	<div id="footer">
 		

@@ -1,9 +1,11 @@
 $(function(){
 	$.get("../server/check_session.php",function(data){
-		if(data=="login"){
-			alert("session success");
-		}else if(data=="logout"){
+		if(data=="logout"){
 			window.location="../index.html";
+		}else if(data=="login"){
+
+		}else{
+			alert("server error!!");
 		}
 	});
 	$.get("../server/contact.php",function(data){
@@ -12,13 +14,14 @@ $(function(){
 			$("#contact-driver").append("<input type='radio' name='driver' value='"+obj.data_contact[i].Username+"'>"+obj.data_contact[i].Username+"<br>");
 		}
 	});
-	$("#message").slideUp();
-	$("#send-message").hide();
+	$("#btn-show-profile").on("click",function(){
+		window.location = "../profile/";
+	});
 	$("#btn-show-home").on("click",function(){
-		window.location = "index.html";
+		window.location = "../dashboard/";
 	});
 	$("#btn-show-message").on("click",function(){
-		$("#message").toggle(300);
+		window.location = "../message/";
 	});
 	$("#btn-send-message").on("click",function(){
 		var $value = $("#message-value").val()+"<br>";
@@ -44,7 +47,6 @@ $(function(){
 				$("#receive-message").append($receive);
 			}
 			$("#receive-message").show();
-			$("#send-message").hide();
 		});
 	});
 	$("#btn-sent").on("click",function(){
@@ -54,8 +56,7 @@ $(function(){
 			for(var i=0;i<obj.data_sent.length;i++){
 				$("#send-message").append("You : "+obj.data_sent[i].Value_Message+"<br>");
 			}
-			$("#send-message").show();
-	$("#receive-message").hide();
+			$("#send-message").show();	
 		});
 	});
 	$("#btn-logout").on("click",function(){

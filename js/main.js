@@ -7,7 +7,6 @@ $(function(){
 	$.get("server/check_session.php",function(){
 		
 	});
-		$("#form-register").hide();
 		$("#btn-register").on("click",function(){
 			alert("hello");
 			var $form_reg = $("#form-register").serialize();

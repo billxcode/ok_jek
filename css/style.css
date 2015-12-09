@@ -7,14 +7,15 @@
   border: 1px solid;
   border: 1px solid #475577; }
 
-#contact-driver {
-  border: 1px solid #D1D5D8;
-  background: white; }
-
-#message {
-  display: table;
-  margin: 0px auto;
-  padding: 0px; }
+#message, #contact-driver, #reseive-message {
+  background: white;
+  width: 30%;
+  height: 98%;
+  width: 30%;
+  float: left;
+  padding: 10px;
+  z-index: 1;
+  overflow-y: scroll; }
 
 * {
   margin: 0px auto;
@@ -28,7 +29,7 @@ html, body {
   color: white;
   background: #28324E;
   width: 100%;
-  height: 10%;
+  height: 9%;
   z-index: 1; }
 
 .menu-list {
@@ -55,36 +56,8 @@ html, body {
   margin: 10px; }
 
 #content {
-  height: 90%; }
-
-#message {
-  background: white;
-  max-width: 500px;
   height: 90%;
-  width: 30%;
-  position: absolute;
-  left: 0px;
-  top: 10%;
-  z-index: 1; }
-
-#message form {
-  height: 100%; }
-
-#contact-driver {
-  margin: 10px;
-  height: 150px;
-  overflow-y: scroll;
-  width: 80%;
-  float: left;
-  padding: 10px; }
-
-.result-msg {
-  width: 85%;
-  height: 200px;
-  margin: 10px;
-  padding: 10px;
-  background: white;
-  overflow-y: scroll; }
+  width: 100%; }
 
 .text-msg {
   width: 85%; }
@@ -93,6 +66,22 @@ html, body {
   display: block;
   width: 100%;
   height: 100%; }
+
+#div-form-register {
+  float: right;
+  width: 20%;
+  height: auto;
+  margin: 10px;
+  border: 1px solid #28324E;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  padding: 10px; }
+
+.text-regis {
+  width: 90%; }
 
 a {
   text-decoration: none; }
