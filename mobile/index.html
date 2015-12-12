@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mobile OK JEK</title>
+	<script type="text/javascript" src="http://localhost/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("#btn-set-mylocation").hide();
+		$("#form-register").hide();
+		$("#btn-show-login").on("click",function(){
+			$("#form-login").show();
+			$("#form-register").hide();
+		});
+		$("#btn-show-register").on("click",function(){
+			$("#form-login").hide();
+			$("#form-register").show();
+		});
+	});
+	</script>
+	<style type="text/css">
+	*{
+		margin: 0px auto;padding: 0px;
+	}
+	.btn{
+		display: table;
+		margin: 5px auto;
+		padding: 10px;
+		width: 50%;
+		background:blue;
+		color: white;
+		font-weight: bold;
+	}
+	.form{
+		display: table;
+		margin: 10px auto;
+		padding: 0px;
+	}
+	</style>
+</head>
+<body>
+<div id="div-form-register" class="form"><form id="form-register" name="form-register" method="post">
+	<div><input type="text" name="firstname" class="" placeholder="firstname"></div>
+	<div><input type="text" name="lastname" class="" placeholder="lastname"></div>
+	<div><input type="text" name="email" class="" placeholder="email"></div>
+	<div><input type="text" name="username" class="" placeholder="username"></div>
+	<div><input type="text" name="password" class="" placeholder="password"></div>
+	<div><button type="button" name="btn-register" id="btn-register" class="btn">Register</button></div>
+	<div><button type="button" name="btn-show-login" id="btn-show-login" class="btn">Login</button></div>
+	</form>
+</div>
+<div id="div-form-login" class="form">
+	<form method="post" id="form-login"><div><input type="text" name="username" placeholder="username" class="text"></div>
+		<div><input type="text" name="password" placeholder="password"></div>
+		<div><button type="button" name="btn-login" class="btn" id="btn-login">Login</button></div>
+		<div><button type="button" name="btn-show-register" id="btn-show-register" class="btn">Register</button></div>
+	</form>
+</div>
+<button type="button" class="btn" id="btn-set-mylocation">REPORT MY LOCATION</button>
+</body>
+</html>

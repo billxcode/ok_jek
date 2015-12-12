@@ -12,14 +12,20 @@
 		<div id="menu-header" class="inner-head">
 			<a href="#"><div class="menu-list" id="btn-show-home">Home</div></a>
 			<a href="#"><div class="menu-list" id="btn-show-profile">Profile</div></a>
+			<a href="#"><div class="menu-list" id="btn-show-video">Video Streaming</div></a>
 			<a href="#"><div class="menu-list" id="btn-show-message">Message</div></a>
 			<a href="#"><div class="menu-list" id="btn-logout">Logout</div></a>
 		</div>
 	</div>
 <div id="content">
-	<input type="text" name="" placeholder="" class="text">
-	<input type="text" name="" placeholder="" class="text">
-	<input type="text" name="" placeholder="" class="text">
+	<div id="div-update-profile">
+	<form id="form-update-profile" enctype="multipart/form-data" action="post">
+			<div><input type="file" name="file" class="text"></div>
+			<div><input type="text" name="firstname" class="text" placeholder="First Name"></div>
+			<div><input type="text" name="lastname" class="text" placeholder="Last Name"></div>
+			<div><input type="text" name="email" class="text" placeholder="EMAIL"></div>
+			<div><button type="button" id="btn-update-profile" class="btn">Update Profile</button> </div>
+		</form></div>
 </div>
 </body>
 </html>

@@ -12,6 +12,7 @@ class model
 	public function security($param){
 		return htmlspecialchars(htmlentities(stripslashes(strip_tags($param))));
 	}
+
 	public function result($param,$type){
 		if($type=="select"){
 			if(mysqli_num_rows($param)>0){
@@ -33,6 +34,10 @@ class model
 			$data[]=$row;
 		}
 		return json_encode($data);
+	}
+	public function get_latlng(){
+		$sql = mysqli_query($this->connect,"SELECT `jalan_nama`, `latitude`, `longitude`, `los_pagi`, `los_siang` FROM `jalan` WHERE 1") or die(mysqli_error($this->connect));
+		return $this->parse_data($sql);
 	}
 	public function register($username,$password){
 		$sql = mysqli_query($this->connect,"INSERT INTO `Authentification`(`Username`, `Password`) VALUES ('$username','$password')") or die(mysqli_error($this->connect));
@@ -57,6 +62,10 @@ class model
 	public function contact_driver(){
 		$sql = mysqli_query($this->connect,"SELECT `idAuthentification`, `Username` FROM `Authentification` WHERE 1") or die(mysqli_error($this->connect));
 		return $this->parse_data($sql);
+	}
+	public function update_profile($firstname,$lastname,$email,$username){
+		$sql = mysqli_query($this->connect,"INSERT INTO `Profile`(`First_Name`, `Last_Name`, `Email`, `Authentification_idAuthentification`) VALUES ('$firstname','$lastname','$email',(SELECT `idAuthentification` FROM `Authentification` WHERE `Username`='$username'))") or die(mysqli_error($this->connect));
+		return $this->result($sql,"insert");
 	}
 	function __destruct(){
 		mysqli_close($this->connect);

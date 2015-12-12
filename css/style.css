@@ -7,11 +7,10 @@
   border: 1px solid;
   border: 1px solid #475577; }
 
-#message, #contact-driver, #reseive-message {
+#message, #contact-driver, #receive-message {
   background: white;
-  width: 30%;
   height: 98%;
-  width: 30%;
+  width: 31%;
   float: left;
   padding: 10px;
   z-index: 1;
@@ -56,11 +55,25 @@ html, body {
   margin: 10px; }
 
 #content {
-  height: 90%;
-  width: 100%; }
+  height: 89%;
+  width: auto; }
+
+.list-driver {
+  padding: 10px;
+  margin: 5px;
+  width: 90%;
+  border: 1px solid black; }
+
+#receive-message {
+  padding: 10px; }
 
 .text-msg {
   width: 85%; }
+
+.msg-bar {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid black; }
 
 #maps {
   display: block;
@@ -82,6 +95,10 @@ html, body {
 
 .text-regis {
   width: 90%; }
+
+#div-update-profile {
+  display: table;
+  margin: 0px auto; }
 
 a {
   text-decoration: none; }

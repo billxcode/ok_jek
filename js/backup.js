@@ -1,7 +1,7 @@
 var lat;
 var lng;
 var map;
-
+var marker;
 function geolocation(){
 	// var bounds = new google.maps.LatLngBounds();
 	if(navigator.geolocation){
@@ -35,48 +35,31 @@ if(navigator.geolocation){
 		center : new google.maps.LatLng(lat,lng),
 		zoom:15,
 		MapType: google.maps.MapTypeId.ROAD,
-		zoomControl: true,
-  	mapTypeControl: true,
-  	scaleControl: true,
-  	streetViewControl: true,
-  	rotateControl: true,
+  	mapTypeControl: false,
+
 	}
 	map = new google.maps.Map(document.getElementById("maps"),opsi);
-	var marker = new google.maps.Marker({
+	$.get("../server/get_latlng.php",function(data){
+		var obj = JSON.parse('{"data":'+data+"}");
+		for(var i=0;i<obj.data.length;i++){
+		marker = new google.maps.Marker({
 		draggable:true,
 		// icon:"http://orig04.deviantart.net/4d21/f/2014/161/8/2/cloud_pixel_avatar__animated___50x50__by_darkfox98-d7lw8ou.gif",
-		position : new google.maps.LatLng(lat,lng),
+		position : new google.maps.LatLng(obj.data[i].latitude,obj.data[i].longitude),
 		map : map
 	});
 
-});
-}
-	
-	/*for(var i=0;i<3;i++){
-		var marker = new google.maps.Marker({
-		draggable:true,
-		icon:"http://orig04.deviantart.net/4d21/f/2014/161/8/2/cloud_pixel_avatar__animated___50x50__by_darkfox98-d7lw8ou.gif",
-		position : new google.maps.LatLng(51.491554,-0.112618),
-		map : map
-	});
-	}*/
-	
-getLatLng();
-
-	var infowindow = new google.maps.InfoWindow({
-		content:"Hello London"
+		var infowindow = new google.maps.InfoWindow({
+		content: obj.data[i].jalan_nama+" -> Los Pagi : "+obj.data[i].los_pagi+" , Los Siang : "+obj.data[i].los_siang
 	});
 
 	infowindow.open(map,marker);
-
-
-/*google.maps.event.addListener(map,'click',function(overlay,latlng){
-			alert(lat+" : "+lng);
-			});
-google.maps.event.addListener(marker,"click",function(){
-removeOverlay(marker);
+	
+		}
+	});
+	
 });
-*/
+}
 }
 
 
